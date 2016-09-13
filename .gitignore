@@ -1,0 +1,6 @@
+# PyCharm configure
+.idea
+
+# Download files
+*.xlsx
+*.xls
