@@ -1,6 +1,7 @@
 # PyCharm configure
-.idea
+/.idea/
 
 # Download files
 *.xlsx
 *.xls
+/Data*
