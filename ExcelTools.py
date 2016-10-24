@@ -12,19 +12,19 @@ from openpyxl.workbook import Workbook
 
 
 # read xls file as xlsx file
-def open_xls_as_xlsx(file_name):
-    book = xlrd.open_workbook(file_name)
+def open_xls_as_xlsx(file_path):
+    book = xlrd.open_workbook(file_path)
     sheet = book.sheet_by_index(0)
     nrows = sheet.nrows
     ncols = sheet.ncols
 
     book1 = Workbook()
-    sheet1 = book1.get_active_sheet()
+    sheet1 = book1.active
     if nrows != 0 and ncols != 0:
         for r in range(0, nrows):
             for c in range(0, ncols):
-                sheet1.cell(row=r+1, column=c+1).value = sheet.cell(r, c)
-    return sheet1
+                sheet1.cell(row=r+1, column=c+1).value = sheet.cell_value(r, c)
+    return book1
 
 
 # some value in the ceil may contain space, use it carefully
