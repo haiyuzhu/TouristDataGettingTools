@@ -64,7 +64,13 @@ class Downloader(object):
         if "admin" in resp.text:
             print("login successfully!")
         else:
-            print("login failed! \nYou may check the user name, password and the url!")
+            print("login failed! \nYou may check the user name, password and cookie!")
+
+    def set_cookie(self, cookie_path="\\temp\\cookie.txt"):
+        file = open(self.work_dir + cookie_path, mode="r")
+        self.cookie = file.read()
+        file.close()
+        print("Read cookie:", self.cookie)
 
     def fetch_data(self, **kwargs):
         pass
@@ -80,5 +86,5 @@ class Downloader(object):
 
 if __name__ == "__main__":
     downloader = Downloader()
-    downloader.pipeline()
+    downloader.set_cookie()
 
