@@ -10,16 +10,16 @@ import requests
 import os
 import datetime
 import time
-import Downloader as Base
+from Downloader import *
 import ExcelTools
 from openpyxl.workbook import Workbook
 
 
 # 下载全市景区客源排名里面的数据
-class QuanShiJingQuKeYuanPaiMing(Base.Downloader):
+class QuanShiJingQuKeYuanPaiMing(Downloader):
 
     def __init__(self, **kwargs):
-        Base.Downloader.__init__(self, **kwargs)
+        Downloader.__init__(self, **kwargs)
         self.data_path = self.work_dir + "\\" + time.strftime("Month%m-day%d-%H-%M-%S", time.localtime())
         print("Data will be saved in:", self.data_path)
         if not os.path.exists(self.data_path):
