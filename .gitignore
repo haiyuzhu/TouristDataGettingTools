@@ -5,3 +5,4 @@
 *.xlsx
 *.xls
 /Data*
+/temp
