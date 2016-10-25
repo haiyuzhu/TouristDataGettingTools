@@ -28,9 +28,9 @@ def open_xls_as_xlsx(file_path):
 
 
 # some value in the ceil may contain space, use it carefully
-def erase_space(str):
+def erase_space(s):
     res = ""
-    for c in str:
+    for c in s:
         if c != " ":
             res += c
     return res

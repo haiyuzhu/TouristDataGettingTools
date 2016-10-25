@@ -158,7 +158,7 @@ class QuanShiXiangCunYouKeYuanPaiMing(Downloader):
                 continue
             ws.cell(row=1,column=c).value = p
             ws.cell(row=cnt,column=c).value = data.get(p)
-            c = c + 1
+            c += 1
 
     def pipeline(self, continuous=False, set_cookie=True, **kwargs):
         if ("year_head" not in kwargs) or ("year_tail" not in kwargs) or ("month_head" not in kwargs) \

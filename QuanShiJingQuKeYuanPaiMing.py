@@ -28,36 +28,36 @@ class QuanShiJingQuKeYuanPaiMing(Downloader):
         self.include_jiangsu = False
         self.include_nanjing = False
         self.provinces = ["安徽",
-            "北京",
-            "福建",
-            "甘肃",
-            "广东",
-            "广西",
-            "贵州",
-            "海南",
-            "河北",
-            "河南",
-            "黑龙江",
-            "湖北",
-            "湖南",
-            "吉林",
-            "江苏",
-            "江西",
-            "辽宁",
-            "内蒙古",
-            "宁夏",
-            "青海",
-            "山东",
-            "山西",
-            "陕西",
-            "上海",
-            "四川",
-            "天津",
-            "西藏",
-            "新疆",
-            "云南",
-            "浙江",
-            "重庆"]
+                          "北京",
+                          "福建",
+                          "甘肃",
+                          "广东",
+                          "广西",
+                          "贵州",
+                          "海南",
+                          "河北",
+                          "河南",
+                          "黑龙江",
+                          "湖北",
+                          "湖南",
+                          "吉林",
+                          "江苏",
+                          "江西",
+                          "辽宁",
+                          "内蒙古",
+                          "宁夏",
+                          "青海",
+                          "山东",
+                          "山西",
+                          "陕西",
+                          "上海",
+                          "四川",
+                          "天津",
+                          "西藏",
+                          "新疆",
+                          "云南",
+                          "浙江",
+                          "重庆"]
 
     def fetch_data(self, **kwargs):
         # include_nanjing, include_jiangsu, day_head, day_tail
@@ -159,13 +159,14 @@ class QuanShiJingQuKeYuanPaiMing(Downloader):
                 continue
             ws.cell(row=1,column=c).value = p
             ws.cell(row=cnt,column=c).value = data.get(p)
-            c = c + 1
+            c += 1
 
     def pipeline(self, continuous=False, set_cookie=True, **kwargs):
         if ("year_head" not in kwargs) or ("year_tail" not in kwargs) or ("month_head" not in kwargs) \
                 or ("month_tail" not in kwargs) or ("day_head" not in kwargs) or ("day_tail" not in kwargs) \
                 or ("include_nanjing" not in kwargs) or ("include_jiangsu" not in kwargs):
-            print("Arguments must contain: year_head, year_tail, month_head, month_tail, day_head, day_tail")
+            print("Arguments must contain: year_head, year_tail, month_head, month_tail, day_head, day_tail,"
+                  "include_nanjing, include_jiangsu")
             return
         if set_cookie:
             self.set_cookie()
